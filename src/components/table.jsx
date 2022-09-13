@@ -3,14 +3,15 @@ import axios from 'axios';
 import s from './table.module.css'
 
 const selectorsList = ['Status', 'Url', 'Species']
+const API_URL = 'https://rickandmortyapi.com/api/character';
 
 export function Table() {
-    const [select, setSelect] = useState()
+    const [select, setSelect] = useState(selectorsList[0])
     const [characters, setCharacters] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const {data} = await axios.get('https://rickandmortyapi.com/api/character').catch(err => {
+            const {data} = await axios.get(API_URL).catch(err => {
                 console.log(err);
             });
             return data;
@@ -51,5 +52,4 @@ export function Table() {
             </tbody>
         </table>
     </>
-
 }
