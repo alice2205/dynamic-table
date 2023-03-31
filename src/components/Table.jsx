@@ -18,6 +18,7 @@ export function Table() {
         }
 
         fetchData().then(data => {
+            console.log('gggg')
             setCharacters(data?.results)
         });
     }, [])
